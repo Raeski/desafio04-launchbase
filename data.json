@@ -1,5 +1,14 @@
 {
   "teachers": [
-    
+    {
+      "id": 1,
+      "name": "Gustavo Raeski",
+      "avatar_url": "https://www.udemy.com/cart/checkout/express/course/2479490/?discountCode=PROMOJUL20",
+      "birth": 937094400000,
+      "services": "História, Filosofia",
+      "gender": "M",
+      "degree": "Doutorado",
+      "created_at": 1594300772255
+    }
   ]
 }

@@ -14,11 +14,11 @@
     </div>
     <div class="item">
         <div>Idade</div>
-        <div>{{teacher.birth}}</div>
+        <div>{{teacher.age}}</div>
     </div>
     <div class="item">
         <div>Sexo</div>
-        <div>{{teacher.gender}}</div>
+        <div>{{ "Masculino" if teacher.gender == "M" else "Feminino"}}</div>
     </div>
     <div class="item">
         <div>Grau de escolaridade</div>
@@ -27,8 +27,8 @@
 
     <div class="item">
         <div>Acompanhamento</div>
-        {% for service in services %}
-        <span>{{service}}</span>
+        {% for service in teacher.services %}
+         <span>{{service}}</span>
         {% endfor %}
     </div>
     <div class="item">

@@ -11,7 +11,15 @@ exports.show = function(req,res) {
 
     if(!foundTeacher) return res.send("Teacher not found")
 
-    return res.render("teachers/show", {teacher: foundTeacher})
+    const teacher = {
+        ...foundTeacher,
+        age: "",
+        services: foundTeacher.services.split(","),
+        degree: "",
+        created_at:"",
+    }
+
+    return res.render("teachers/show", {teacher})
 }
 
 //CREATE
