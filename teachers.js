@@ -11,7 +11,7 @@ exports.show = function(req,res) {
 
     if(!foundTeacher) return res.send("Teacher not found")
 
-    return res.send(foundTeacher)
+    return res.render("teachers/show", {teacher: foundTeacher})
 }
 
 //CREATE
@@ -24,7 +24,7 @@ exports.show = function(req,res) {
             if(req.body[key] == "")
                 return res.send('Please, fill all fields!')
         }
-        let {avatar_url, birth, name, services, gender} = req.body
+        let {avatar_url, birth, name, services,degree, gender} = req.body
 
         birth = Date.parse(birth)
         const created_at = Date.now()
@@ -39,7 +39,9 @@ exports.show = function(req,res) {
             birth,
             services,
             gender,
+            degree,
             created_at,
+            
         })
 
         fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
