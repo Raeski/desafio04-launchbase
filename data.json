@@ -1,8 +1,8 @@
 {
   "teachers": [
     {
-      "id": 1,
-      "name": "Gustavo Raeski",
+      "id": "1",
+      "name": "Gustavo Raeskiaa",
       "avatar_url": "https://source.unsplash.com/collection/1361815/500x500",
       "birth": 937094400000,
       "services": "História, Filosofia",
