@@ -1,16 +1,6 @@
 {
   "teachers": [
     {
-      "id": "1",
-      "name": "Gustavo Raeskiaa",
-      "avatar_url": "https://source.unsplash.com/collection/1361815/500x500",
-      "birth": 937094400000,
-      "services": "História, Filosofia",
-      "gender": "M",
-      "degree": "Doutorado",
-      "created_at": 1594300772255
-    },
-    {
       "id": 2,
       "name": "Marta Raeski",
       "avatar_url": "https://github.com/Raeski/desafio04-launchbase/commit/91af349027a713df1623aac560dcf7cea9d05ed9",
