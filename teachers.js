@@ -106,7 +106,8 @@ exports.show = function(req,res) {
         const teacher = {
             ...foundTeacher,
             ...req.body,
-            birth: Date.parse(req.body.birth)
+            birth: Date.parse(req.body.birth),
+            id: Number(req.body.id)
         }
 
         data.teachers[index] = teacher
