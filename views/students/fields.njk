@@ -1,5 +1,3 @@
-
-
     <div class="item">
         <div>Avatar URL</div>
         <div>
@@ -7,7 +5,7 @@
              type="url"
              name="avatar_url"
              placeholder="http://"
-             value="{{teacher.avatar_url}}"
+             value="{{student.avatar_url}}"
             >
         </div>
     </div>    
@@ -17,8 +15,17 @@
             <input
              type="text"
              name="name"
-             placeholder="Nome do professor"
-             value="{{teacher.name}}"
+             value="{{student.name}}"
+            >
+        </div>
+    </div>
+    <div class="item">
+        <div>Email</div>
+        <div>
+            <input
+             type="email"
+             name="email"
+             value="{{student.name}}"
             >
         </div>
     </div>
@@ -28,7 +35,7 @@
             <input 
             type="date"
             name="birth"
-            value="{{teacher.birth}}"
+            value="{{student.birth}}"
             >
         </div>
     </div>
@@ -39,7 +46,7 @@
                 <input type="radio" 
                 name="gender"
                 value="M" 
-                {% if teacher.gender == "M" %}
+                {% if student.gender == "M" %}
                 checked
                 {% endif %}>Masculino</span>
             <span >
@@ -47,28 +54,19 @@
                 type="radio"
                 name="gender"
                 value="F"
-                {% if teacher.gender == "F" %}
+                {% if student.gender == "F" %}
                 checked
                 {% endif %}
                   >Feminino</span>
         </div>
     </div>
     <div class="item">
-        <div>Área de atuação</div>
-        <input 
-        type="text"
-        name="services"
-        placeholder="Quais matérias dá aula"
-        value="{{teacher.services}}"
-        >
-    </div>
-    <div class="item">
-        <div>Nível de escolaridade</div>
+        <div>Matérias que precisa de auxílio</div>
             <input 
             type="text"
-            name="degree"
-            placeholder="Digite seu nível de escolaridade"
-            value="{{teacher.degree}}"
+            name="subject"
+            placeholder="Digite quais matérias precisa de ajuda"
+            value="{{student.subject}}"
             >
     </div>
     <button type="submit">SALVAR</button>
