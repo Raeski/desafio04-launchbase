@@ -6,19 +6,21 @@
     <table width="100%"> 
         <thead>
             <tr>
-                <th>Professor</th>
-                <th>Atendimento</th>
+                <th>Estudante</th>
+                <th>Email</th>
+                <th>Matérias</th>
                 <th>Ação</th>
             </tr>
         </thead>
         <tbody>
-            {% for teacher in teachers %}
+            {% for student in students %}
             <tr>
                 <td>
-                    <span style= "background-image: url({{teacher.avatar_url}})"></span>
-                    {{teacher.name}}</td>
-                <td>{{teacher.services}}</td>
-                <td><a href="/teachers/{{teacher.id}}">ver</a></td>
+                    <span style= "background-image: url({{student.avatar_url}})"></span>
+                    {{student.name}}</td>
+                <td>{{student.email}}</td>
+                <td>{{student.subject}}</td>
+                <td><a href="/students/{{student.id}}">ver</a></td>
             </tr>
             {%endfor%}
         </tbody>

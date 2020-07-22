@@ -45,7 +45,7 @@ exports.post = function(req,res){
 
         let id = 1
 
-        const lastStudent = data.members[data.students.length - 1]
+        const lastStudent = data.students[data.students.length - 1]
 
         if(lastStudent) {
             id = lastStudent + 1
@@ -77,7 +77,7 @@ exports.edit = function(req,res){
 
         const student = {
             ...foundStudent,
-            birth: date(foundStudent.birth)
+            birth: date(foundStudent.birth).iso
         }
 
        

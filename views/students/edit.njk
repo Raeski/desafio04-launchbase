@@ -6,25 +6,38 @@
 
     <section 
         class="avatar" 
-        style="background: url(https://source.unsplash.com/collection/1361815/500x500) no-repeat center center /cover">
+        style="background: url({{student.avatar_url}}) no-repeat center center /cover">
     </section>
-    <form method="POST" action="/teachers?_method=PUT"> 
+    <form method="POST" action="/students?_method=PUT"> 
         
         <section class="details">
-            <h3>Editar Professor</h3>
+            <h3>Editar Aluno</h3>
 
-            {% include 'teachers/fields.njk' %}
+            {% include 'students/fields.njk' %}
 
             <input
             type="hidden"
             name="id" 
-            value="{{teacher.id}}">
+            value="{{student.id}}">
     </form>
-    <form id="form-delete" action="/teachers?_method=DELETE" method="post">
-        <input type="hidden" name="id" value={{teacher.id}}>
+    <form id="form-delete" action="/students?_method=DELETE" method="post">
+        <input type="hidden" name="id" value={{student.id}}>
         <button type="submit">DELETAR</button>
     </form>
-        </section>
+
+        <script>
+
+            const formDelete = document.querySelector("#form-delete")
+            formDelete.addEventListener("submit", function(event){
+                const confirmation = confirm("Deseja Deletar?")
+                if(!confirmation) {
+                    event.preventDefault()
+                }
+            })
+
+        </script>
+   
+    </section>
 </div>
 
 
