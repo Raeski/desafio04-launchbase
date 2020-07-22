@@ -1,5 +1,24 @@
 {
-  "students": [],
+  "students": [
+    {
+      "avatar_url": "https://github.com/Raeski/desafio04-launchbase/commit/91af349027a713df1623aac560dcf7cea9d05ed9",
+      "name": "h",
+      "email": "gustavoraeski@outlook.com",
+      "birth": 937094400000,
+      "gender": "M",
+      "subject": "História, portugues",
+      "id": 1
+    },
+    {
+      "avatar_url": "https://www.udemy.com/cart/checkout/express/course/2479490/?discountCode=PROMOJUL20",
+      "name": "Gustavo Raeskia",
+      "email": "gustavo_raeski@hotmail.com",
+      "birth": 610368318000000,
+      "gender": "M",
+      "subject": "asd",
+      "id": 2
+    }
+  ],
   "teachers": [
     {
       "id": 2,

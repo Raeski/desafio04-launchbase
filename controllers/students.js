@@ -1,6 +1,6 @@
 const fs = require('fs')
 const data = require('../data.json')
-const {age, date} = require('../utils')
+const {date} = require('../utils')
 
 
 exports.index =  function (req,res){
@@ -19,9 +19,8 @@ exports.show = function(req,res){
 
     const student = {
         ...foundStudent,
-        age: age(foundStudent.birth),
-        services: foundStudent.services.split(","),
-        degree: foundStudent.degree,
+        birth: date(foundStudent.birth).birthDay,
+        subject: foundStudent.subject.split(","),
         created_at:new Intl.DateTimeFormat("pt-BR").format(foundStudent.created_at)
     }
 
@@ -41,33 +40,29 @@ exports.post = function(req,res){
             if(req.body[key] == "")
                 return res.send('Please, fill all fields!')
         }
-        let {avatar_url, birth, name, services,degree, gender} = req.body
 
-        birth = Date.parse(birth)
-        const created_at = Date.now()
-        const id = Number(data.students.length + 1)
+        birth = Date.parse(req.body.birth)
 
+        let id = 1
+
+        const lastStudent = data.members[data.students.length - 1]
+
+        if(lastStudent) {
+            id = lastStudent + 1
+        }
         
 
         data.students.push({
+            ...req.body,
             id,
-            name,
-            avatar_url,
-            birth,
-            services,
-            gender,
-            degree,
-            created_at,
-            
+            birth            
         })
 
         fs.writeFile("data.json", JSON.stringify(data, null, 2), function (err) {
             if(err) return res.send("Write file error!")
                     
-            return res.redirect("/students")
+            return res.redirect(`/students/${id}`)
         })
-
-        //return res.send(keys)
 }
 
 exports.edit = function(req,res){

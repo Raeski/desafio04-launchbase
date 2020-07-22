@@ -6,7 +6,7 @@ const {age, date} = require('../utils')
 exports.index =  function (req,res){
     return res.render("teachers/index", {teachers: data.teachers})
 }
-//show
+
 exports.show = function(req,res) {
     const { id } = req.params
 
@@ -31,8 +31,8 @@ exports.show = function(req,res) {
 exports.create = function(req,res) {
     return res.render("teachers/create")
 }
-//CREATE
-    exports.post = function(req,res){
+
+exports.post = function(req,res){
         
     
         const keys = Object.keys(req.body)
@@ -68,10 +68,9 @@ exports.create = function(req,res) {
         })
 
         //return res.send(keys)
-    }
+}
 
-//EDIT
-    exports.edit = function(req,res){
+exports.edit = function(req,res){
         const { id } = req.params
 
         const foundTeacher = data.teachers.find(function(teacher){
@@ -83,17 +82,14 @@ exports.create = function(req,res) {
 
         const teacher = {
             ...foundTeacher,
-            birth: date(foundTeacher.birth)
+            birth: date(foundTeacher.birth).iso
         }
-
-       
 
 
         return res.render('teachers/edit', {teacher})
-    }
+}
 
-//PUT 
-    exports.put = function (req,res) {
+exports.put = function (req,res) {
         const { id } = req.body
         let index = 0
 
@@ -121,9 +117,7 @@ exports.create = function(req,res) {
             return res.redirect(`/teachers/${id}`)
         })
 
-    }
-
-//DELETE
+}
 
 exports.delete = function(req,res) {
     const { id } = req.body
