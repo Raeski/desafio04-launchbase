@@ -14,13 +14,13 @@ index(req,res) {
     },
     post(req,res) {
 
-    const keys = Object.keys(req.body)
+        const keys = Object.keys(req.body)
 
-    for ( key of keys) {
-        
-       if (req.body[key] == "") 
-        return res.send('Please, fill all fields')
-    }
+        for ( key of keys) {
+            
+            if (req.body[key] == "") 
+                return res.send('Please, fill all fields')
+        }
 
     Instructor.create(req.body, function(instructor) {
         return res.redirect(`/instructors/${instructor.id}`)
@@ -41,10 +41,30 @@ index(req,res) {
     },
 
     edit(req,res) {
-        return
+        Instructor.find(req.params.id, function(instructor) {
+            if(!instructor)  return res.send("Instructor not found!")
+
+            instructor.age = date(instructor.birth).iso
+            instructor.services = instructor.services.split(",")
+
+            instructor.created_at = date(instructor.created_at).format
+
+            return res.render("instructors/edit", {instructor})
+        })
+
     },
     put(req,res) {
-        return
+        const keys = Object.keys(req.body)
+
+        for ( key of keys) {
+            
+            if (req.body[key] == "") 
+                return res.send('Please, fill all fields')
+        }
+        Instructor.update(req.body, function(){
+            return res.redirect(`/instructors/${req.body.id}`)
+        })
+
     },
     delete(req,res) {
         return
