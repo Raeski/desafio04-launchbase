@@ -1,50 +1,69 @@
 const { age, date } = require('../../lib/utils')
 
+const Member = require('../models/Member')
+
 module.exports = {
 
     index(req,res) {
-    return res.render("members/index")},
-    create(req,res) {
-        return res.render('members/create')
+        Member.all(function(members) {
+                return res.render("members/index", {members})
+        })
     },
-    post(req,res) {
-
-    const keys = Object.keys(req.body)
-
-    for ( key of keys) {
-        
-       if (req.body[key] == "") 
-        return res.send('Please, fill all fields')
-    }
-
-    return
-   
-    },
-    show(req,res) {const { id } = req.params
-
-    const foundInstructor = data.members.find(function (member){
-        return id == member.id
-    })
-    if(!foundInstructor)  return res.send("Instructor not found!") 
-
-   
-   
     
-    const member = {
-        ...foundInstructor,
-        age: age(foundInstructor.birth),
-        services: foundInstructor.services.split(","),
-        created_at: new Intl.DateTimeFormat("pt-BR").format(foundInstructor.created_at),
-    }
-
-    return res.render("members/show", {member})},
-    edit(req,res) {
-        return
-    },
-    put(req,res) {
-        return
-    },
-    delete(req,res) {
-        return
-    },
-}
+        create(req,res) {
+            return res.render('members/create')
+        },
+        post(req,res) {
+    
+            const keys = Object.keys(req.body)
+    
+            for ( key of keys) {
+                
+                if (req.body[key] == "") 
+                    return res.send('Please, fill all fields')
+            }
+    
+        Member.create(req.body, function(member) {
+            return res.redirect(`/members/${member.id}`)
+        })
+       
+        },
+        show(req,res){  
+            Member.find(req.params.id, function(member) {
+                if(!member)  return res.send("Member not found!")
+    
+                member.birth = date(member.birth).birthDay
+ 
+                return res.render("members/show", {member})
+            })
+        },
+    
+        edit(req,res) {
+            Member.find(req.params.id, function(member) {
+                if(!member)  return res.send("Member not found!")
+    
+                member.birth = date(member.birth).iso
+    
+                return res.render("members/edit", {member})
+            })
+    
+        },
+        put(req,res) {
+            const keys = Object.keys(req.body)
+    
+            for ( key of keys) {
+                
+                if (req.body[key] == "") 
+                    return res.send('Please, fill all fields')
+            }
+            Member.update(req.body, function(){
+                return res.redirect(`/members/${req.body.id}`)
+            })
+    
+        },
+        delete(req,res) {
+            Member.delete(req.body.id, function(){
+                return res.redirect(`/members`)
+            })
+        },
+        }
