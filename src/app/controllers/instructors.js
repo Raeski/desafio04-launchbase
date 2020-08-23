@@ -16,7 +16,7 @@ index(req,res) {
         limit,
         offset,
         callback(instructors) {
-            
+            return res.render("instructors/index", {instructors, filter})
         }
     }
 
