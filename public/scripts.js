@@ -7,3 +7,8 @@ for(item of menuItems) {
         item.classList.add("active")
     }
 }
+
+// Paginação
+//totalPages = 20
+// selectedPage = 15
+// [1, ..., 13, 14, 15, 16, 17, ....,20]
