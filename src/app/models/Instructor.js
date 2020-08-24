@@ -114,7 +114,7 @@ module.exports = {
             ${filterQuery}
             ) AS total`
     }
-
+ 
     query = `
         SELECT instructors.*, ${totalQuery}, count(members) AS total_students
         FROM instructors
