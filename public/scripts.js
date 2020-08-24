@@ -8,15 +8,10 @@ for(item of menuItems) {
     }
 }
 
-// Paginação
-//totalPages = 20
-// selectedPage = 15
-// [1, ..., 13, 14, 15, 16, 17, ...,20]
+function paginate (selectedPage, totalPages) {
 
-let totalPages = 20,
-selectedPage = 5,
-pages = [],
-oldPage
+    let pages = [],
+    oldPage
 
     for(let currentPage = 1; currentPage <= totalPages; currentPage++){
 
@@ -38,4 +33,21 @@ oldPage
             oldPage = currentPage
         }
     }
-console.log(pages)
+    return pages
+}
+const pagination = document.querySelector(".pagination")
+const page = +pagination.dataset.page;
+const total = +pagination.dataset.total;
+const pages = paginate(page, total)
+
+let elements = ""
+
+for (let page of pages) {
+    if(String(page).includes("...")) {
+        elements += `<span>${page}</span>`
+    }else {
+        elements += `<a href="?page=${page}">${page}</a>`
+    }
+    
+}
+pagination.innerHTML = elements
