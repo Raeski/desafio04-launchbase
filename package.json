@@ -12,7 +12,11 @@
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "nunjucks": "^3.2.1",
+<<<<<<< HEAD
     "pg": "^8.3.2"
+=======
+    "pg": "^8.3.0"
+>>>>>>> 682f712291af0fb284bee4dbefb3c1a5747d2776
   },
   "devDependencies": {
     "browser-sync": "^2.26.7",

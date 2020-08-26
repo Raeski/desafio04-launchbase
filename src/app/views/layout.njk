@@ -2,7 +2,7 @@
 <html>
 <head>
     {% block head %}
-        <title>Private Classes</title>
+        <title>Gym Manager</title>
     {% endblock %}
     <link rel="stylesheet" href="/styles.css">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -11,12 +11,14 @@
 <body>
     <header>
         <div class="links">
-            <a href="/teachers"> Teachers </a>
-            <a href="/students"> Students </a>
+            <a href="/instructors"> Instructors </a>
+            <a href="/members"> Members </a>
         </div>           
-</header>
+    </header>
+    
 
     {% block content %}{% endblock %}
-    <script src="scripts.js"></script>
+
+    <script src="/scripts.js"></script>
 </body>    
 </html>

@@ -5,7 +5,7 @@
 
 *<p align="center"><h2>Desáfio 4 em desenvolvimento :warning:</h2>*
 
-![Screenshot from 2020-06-29 17-02-14](https://user-images.githubusercontent.com/46768410/86050617-77d40d80-ba2a-11ea-9582-ab8a14f4c259.png)
+![módulo4](https://user-images.githubusercontent.com/46768410/88212502-c04ba900-cc2d-11ea-9751-4b0005e041de.gif)
 
 <p>Nesse Projeto foram utilizados:</p>
 
