@@ -2,7 +2,7 @@ const {age, date} = require('../../lib/utils')
 
 module.exports = {
     index(req,res){
-        return res.render("teachers/index", {teachers: data.teachers})
+        return res.render("teachers/index")
     },
 
     create(req,res){
@@ -15,8 +15,8 @@ module.exports = {
             if(req.body[key] == "")
                 return res.send('Please, fill all fields!')
         }
-        let {avatar_url, birth, name, services,degree, gender} = req.body
-        return  
+
+            return  
     },
 
     show(req,res){
@@ -29,6 +29,7 @@ module.exports = {
 
     put(req,res){
         const keys = Object.keys(req.body) 
+
         for (key of keys){
             if(req.body[key] == "")
                 return res.send('Please, fill all fields!')
