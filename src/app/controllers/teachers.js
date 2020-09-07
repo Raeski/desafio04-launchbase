@@ -16,16 +16,25 @@ module.exports = {
                 return res.send('Please, fill all fields!')
         }
         const query = `
-            INSERT INTO teachers {
+            INSERT INTO teachers (
                 avatar_url,
                 name,
                 birth,
                 gender,
                 services,
                 degree
-            } VALUES ($1, $2, $3, $4, $5, $6)
+            ) VALUES ($1, $2, $3, $4, $5, $6)
             RETURNING id
         `
+
+        const values = [
+            req.body.avatar_url,
+            req.body.name,
+            date(req.body.birth).iso,
+            req.body.gender,
+            req.body.services,
+            req.body.degree
+        ]
         
 
             return  
