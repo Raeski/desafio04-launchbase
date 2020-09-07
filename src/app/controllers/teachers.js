@@ -15,6 +15,18 @@ module.exports = {
             if(req.body[key] == "")
                 return res.send('Please, fill all fields!')
         }
+        const query = `
+            INSERT INTO teachers {
+                avatar_url,
+                name,
+                birth,
+                gender,
+                services,
+                degree
+            } VALUES ($1, $2, $3, $4, $5, $6)
+            RETURNING id
+        `
+        
 
             return  
     },
