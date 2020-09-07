@@ -5,5 +5,5 @@ module.exports = new Pool ({
   password: "99288723",
   host: "localhost",
   database: 5432,
-  database: "professores"
+  database: "desafio04-launchbase"
 })

@@ -1,4 +1,5 @@
 const {age, date} = require('../../lib/utils')
+const db = require('../../config/db')
 
 module.exports = {
     index(req,res){
@@ -35,9 +36,11 @@ module.exports = {
             req.body.services,
             req.body.degree
         ]
-        
+        db.query(query, values, function(err, results) {
+            if(err) return res.send("Database Error!")
 
-            return  
+            return res.redirect(`/teachers/${results.rows[0].id}`)
+        })
     },
 
     show(req,res){
