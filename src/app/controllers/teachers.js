@@ -41,7 +41,7 @@ module.exports = {
         Teacher.find(req.params.id, function(teacher) {
             if(!teacher) return res.send("Teacher not found!")
 
-            teacher.birth = age(teacher.birth)
+            teacher.birth = age(teacher.birth).iso
             return res.render("teachers/edit", { teacher })
 
         })
