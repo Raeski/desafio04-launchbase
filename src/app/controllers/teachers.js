@@ -56,7 +56,7 @@ module.exports = {
         }
     }
         Teacher.update(req.body, function () {
-            return res.redirect(`/instructors/${req.body.id}`)
+            return res.redirect(`/teachers/${req.body.id}`)
         })
     },
     

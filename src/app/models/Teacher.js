@@ -5,7 +5,7 @@ const db = require('../../config/db')
 module.exports = {
   all(callback){
     db.query(`SELECT * FROM teachers`, function(err, results) {
-      if(err) return res.send("Database Error!")
+      if(err) throw `Database Error! ${err}`
 
       callback(results.rows)
       
@@ -35,8 +35,7 @@ module.exports = {
         data.degree
     ]
     db.query(query, values, function(err, results) {
-        if(err) return res.send("Database Error!")
-
+        if(err) throw `Database Error! ${err}`
         callback(results.rows[0])
     })
   },
@@ -45,20 +44,20 @@ module.exports = {
     SELECT * 
     FROM teachers 
     WHERE id = $1`, [id], function(err, results) {
-      if(err) return res.send("Database Error!")
+      if(err) throw `Database Error! ${err}`
       callback(results.rows[0])
     })
   },
   update(data, callback) {
     const query = `
-    UPDATE instructors SET
+    UPDATE teachers SET
       avatar_url=($1),
       name=($2),
       birth=($3),
       gender=($4),
       services=($5),
       degree=($6)
-    WHERE id = $6
+    WHERE id = $7
     `
     const values = [
       data.avatar_url,
@@ -71,8 +70,7 @@ module.exports = {
 
     ]
     db.query(query, values, function (err, results) {
-      if(err) return res.send("Database Error!")
-
+      if(err) throw `Database Error! ${err}`
         callback()
     })
   }
