@@ -1,8 +1,8 @@
-const {age, date} = require('../../lib/utils')
-const Student = require('../models/Seacher')
+const {date} = require('../../lib/utils')
+const Student = require('../models/Student')
+
 module.exports = {
     index(req,res){
-
         Student.all(function(students){
             return res.render("students/index", {students})
         })
@@ -27,7 +27,7 @@ module.exports = {
         Student.find(req.params.id, function(student) {
             if(!student) return res.send("Student not found!")
 
-            student.birth = age(student.birth).birthDay
+            student.birth = date(student.birth).birthDay
 
             return res.render("students/show", { student })
 
