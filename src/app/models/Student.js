@@ -16,7 +16,7 @@ module.exports = {
         email,
         birth,
         gender,
-        subject,
+        subject
     ) VALUES ($1, $2, $3, $4, $5, $6)
     RETURNING id
 `
